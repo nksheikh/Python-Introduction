@@ -15,8 +15,8 @@ while True:
         break
     finally:
         print("Cycle ended.")
-else:
-    print("Done with loop.")
+
+
 
 num1 = 12
 num2 = 14
