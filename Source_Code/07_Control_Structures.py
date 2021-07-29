@@ -26,3 +26,19 @@ elif num1 < num2:
     print("lesser")
 else:
     print("equal")
+
+# For loops
+fruits = ["apples", "oranges", "bannanas", "watermellons"]
+for fruit in fruits:
+    print(fruit)
+
+for letter in fruits[0]:
+    print(letter)
+
+for i in range(len(fruits)):
+    print(fruits[i])
+else:
+    print("Finished")
+
+for fruit in ["apples", "oranges", "bannanas", "watermellons"]:
+    print(fruit)
