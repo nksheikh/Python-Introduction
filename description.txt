@@ -1,0 +1,89 @@
+BASICS
+Python Comments
+Python Variables
+Python Data Types
+Python Numbers
+Python Casting
+Python Booleans
+Python Operators
+
+COLLECTIONS
+Python Lists
+Python Tuples
+Python Sets
+Python Dictionaries
+Python Arrays
+Python Iterators
+
+CONTROL STRUCTURES
+Python If/Else
+Python While Loops
+Python For Loops
+Python Continue/Break/Pass
+Python Pattern Matching (Match/Case)
+
+FUNCTIONS
+Python Functions
+Python Lambda
+
+OOP
+Python Classes/Objects
+Python Inheritance
+Python Polymorphism
+Python Scope
+Python Modules
+
+SPECIAL TOPICS
+Python Dates
+Python Math
+Python Requests
+Python JSON
+Python RegEx
+Python PIP
+Python Try...Except
+
+STRINGS
+Python Strings
+Python User Input
+Python String Formatting
+
+FILE HANDLING
+Python File Handling
+Python Read Files
+Python Write/Create Files
+Python Delete Files
+
+-------------------------------------------------------------------------------------
+
+Research
+Linear Algebra Review
+Python Programming Review / Daily Assignment Turnover
+NLP
+Visual Basic from Tutorials
+
+Meta-Analysis Tutorial
+Practice Piano
+Starting Learning Bengali 
+
+-------------------------------------------------------------------------------------
+
+Encapsulate program into a separate module / class and import it into the main file
+->OOP
+->FUNCTIONS
+
+Get the Date/Time in GA and Bangladesh and Show what Date is 28 Days from Today
+->Date/Time
+->String Formatting
+
+Warp the Main into the Try Except Block w/ Logging
+-> Error Handling
+
+Ask for Two Number, Validate, If Actually a Special Phrase then Give Special Message
+->BASICS
+->CONTROL STRUCTURES
+
+Ask the User to Connect to a Website and Validate That It's a Valid Website w/ Regex
+->String Input
+->Regex
+->Requests
+
