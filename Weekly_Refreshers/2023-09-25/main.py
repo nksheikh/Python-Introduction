@@ -1,50 +1,83 @@
-# Import the requisite packages
-import datetime
-from dateutil.relativedelta import relativedelta
+# Import the requisite package
+from datetime import date, datetime, timezone
+import zoneinfo
 
-class GetDates:
+# Create the class
+class DatePractice:
     
-    # Class constructor
+    # Weeday mappings
+    weekdaymappings = {
+        0: "Monday",
+        1: "Tuesday",
+        2: "Wednesday",
+        3: "Thursday",
+        4: "Friday",
+        5: "Saturday",
+        6: "Sunday"
+    }
+    
+    # Construct the class
     def __init__(self):
-        pass
-    
-    # Print current date
-    def printdates(self):
-        naivelocaltime = datetime.now()
-        awarelocaltime = datetime.now(tz = datetime.timezone.utc)
+        self.currentdatetime = datetime.now(timezone.utc)
+        self.currentdate = date.today()
         
-        dateofinterest = awarelocaltime
+    # To some datetime manipulation
+    def printdatetimeinfo(self, selecteddatetime = None):
         
-        print(f"The local time is: {dateofinterest}")
+        # Grab the class attribute currentdatetime if no date is especified
+        if selecteddatetime is None:
+            selecteddatetime = self.currentdatetime
         
-        print(f"The date component is: {dateofinterest.date()}")
-        print(f"The year is: {dateofinterest.year}")
-        print(f"The month is: {dateofinterest.month}")
-        print(f"The day is: {dateofinterest.day}")
+        # Print the date information
+        print(f"The date component is: {selecteddatetime.date()}")
+        print(f"The year is: {selecteddatetime.year}")
+        print(f"The month is: {selecteddatetime.month}")
+        print(f"The day is: {selecteddatetime.day}")
+        print(f"The weekday number is: {selecteddatetime.weekday()} which is a {self.weekdaymappings[selecteddatetime.weekday()]}")
         
-        print(f"The time component without timezone is: {dateofinterest.time()}")
-        print(f"The time component with timezone is: {dateofinterest.timetz()}")
-        print(f"The hour is: {dateofinterest.hour}")
-        print(f"The minute is: {dateofinterest.minute}")
-        print(f"The microsecond is: {dateofinterest.microsecond}")
-        print(f"The timezone is: {dateofinterest.tzinfo}")
+        # Print the time information
+        print(f"The time component is: {selecteddatetime.timetz()}")
+        print(f"The hour is: {selecteddatetime.hour}")
+        print(f"The second is: {selecteddatetime.second}")
+        print(f"The microsecond is: {selecteddatetime.microsecond}")
+        print(f"The timzone is: {selecteddatetime.tzinfo}")
         
-    def printdates2(self):
-        currentdate = datetime.date(year = 2020, month = 7, day = 30)
-        timedeltainterval = datetime.timedelta(weeks = 4)
-        relativedeltainterval = relativedelta(months = 1)
-
-        timedeltadate = currentdate - timedeltainterval
-        relativedeltadate = currentdate - relativedeltainterval
+    # Print date in different timezones
+    def printdatetimetzs(self, selecteddatetime = None, tzstrlist = None):
         
-        # Print the date components
-        print(f"The current date is: {currentdate} and is type: {type(currentdate)}")
-        print(f"The timedelta date is: {timedeltadate} and is type: {type(timedeltadate)}")
-        print(f"The relativedelta date is: {relativedeltadate} and is type: {type(relativedeltadate)}")
-
+        # Grab the class attribute currentdatetime if no date is especified
+        if selecteddatetime is None:
+            selecteddatetime = self.currentdatetime
+        
+        # If timezones have not been provided, then let's create a default list
+        if tzstrlist is None:
+            timezones = ["US/Eastern", "Asia/Bishkek"]
+            
+        # Create and localize the time to the selected times instead
+        for tzstr in tzstrlist:
+            tz = zoneinfo.ZoneInfo(tzstr)
+            print(f"The current datetime is {selecteddatetime} and the modified datetime in the {tzstr} timezone is {selecteddatetime.astimezone(tz)}")
+        
+    # Parse some strings
+    def parsestr(self, strdates = None):
+        
+        # Ensure that dates is not mutated
+        if strdates is None:
+            strdates = []
+        
+        # Parse each date
+        for datestr in strdates:
+            print(f"The parse string is: {datetime.strptime(datestr, '%Y-%m-%d').date()}")
+            
+        
 # Main execution point
 if __name__ == "__main__":
     
-    # Create date obtainer and print current time in timezones
-    dateobtainer = GetDates()
-    dateobtainer.printdates2()
+    # Instantiate the DatePractice class and print the details
+    try:
+        datepractice = DatePractice()
+        datepractice.printdatetimeinfo()
+        datepractice.printdatetimetzs(tzstrlist = ["US/Eastern", "Asia/Bishkek"])
+        datepractice.parsestr(["2023-09-30", "2023-10-01"])
+    except Exception as e:
+        print(f"ERROR MESSAGE: {str(e)}")
