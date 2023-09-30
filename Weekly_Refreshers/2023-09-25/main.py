@@ -69,15 +69,61 @@ class DatePractice:
         for datestr in strdates:
             print(f"The parse string is: {datetime.strptime(datestr, '%Y-%m-%d').date()}")
             
+# Create the user entry class
+class UserEntry:
+    
+    # Create the constructor
+    def __init__(self, specialphrase = "Special Phrase"):
+        self.specialphrase = specialphrase
         
+    # Prompt until valid response acheived
+    def prompt():
+        
+        # 
+        entryvalid = False
+        
+        # 
+        
+        return 0
+    
+    # Validate use entry
+    def getnumber(self):
+        
+        # Ask user for input and parse for validity
+        try:
+            
+            # Get th e number from the user
+            num = input("Please type in your first number: ")
+            
+            # Check if response is special phrase, otherwise treat as a number
+            if num == self.specialphrase:
+                print("You entered the special phrase! No addition needed.")
+                return None
+            else:
+                return float(num)
+                
+        except Exception as e:
+            print(f"ERROR MESSAGE: {str(e)}.")
+        
+        # If all fails then an error must have occured.
+        return ""
+        
+
 # Main execution point
 if __name__ == "__main__":
     
     # Instantiate the DatePractice class and print the details
     try:
+        # Date practice
         datepractice = DatePractice()
         datepractice.printdatetimeinfo()
         datepractice.printdatetimetzs(tzstrlist = ["US/Eastern", "Asia/Bishkek"])
         datepractice.parsestr(["2023-09-30", "2023-10-01"])
+        
+        # User entry
+        userentry = UserEntry()
+        userentry.prompt()
+        
     except Exception as e:
         print(f"ERROR MESSAGE: {str(e)}")
+        

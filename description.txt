@@ -78,7 +78,7 @@ Get the Date/Time in GA and Bangladesh and Show what Date is 28 Days from Today
 Warp the Main into the Try Except Block w/ Logging
 -> Error Handling
 
-Ask for Two Number, Validate, If Actually a Special Phrase then Give Special Message
+Ask for Two Numbers, Validate, If Actually a Special Phrase then Give Special Message
 ->BASICS
 ->CONTROL STRUCTURES
 
