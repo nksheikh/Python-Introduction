@@ -77,36 +77,47 @@ class UserEntry:
         self.specialphrase = specialphrase
         
     # Prompt until valid response acheived
-    def prompt():
+    def prompt(self):
         
-        # 
-        entryvalid = False
+        # Ask for the tw numbers and break if either are the special phrase
+        num1 = self.getnumber("Please type your first number: ")
+        if num1 == "Special Phrase":
+            print("You entered the special phrase! No multiplication needed.")
+            return
         
-        # 
+        num2 = self.getnumber("Please type your second number: ")
+        if num2 == "Special Phrase":
+            print("You entered the special phrase! No multiplication needed.")
+            return
         
-        return 0
+        # If both are valid numbers, multiply and return them
+        print(f"The product of the two numbers is: {num1 * num2}")
     
     # Validate use entry
-    def getnumber(self):
+    def getnumber(self, promptphrase):
         
         # Ask user for input and parse for validity
-        try:
-            
-            # Get th e number from the user
-            num = input("Please type in your first number: ")
-            
-            # Check if response is special phrase, otherwise treat as a number
-            if num == self.specialphrase:
-                print("You entered the special phrase! No addition needed.")
-                return None
-            else:
-                return float(num)
+        entryvalid = False
+        num = None
+        while not entryvalid:
+            try:
                 
-        except Exception as e:
-            print(f"ERROR MESSAGE: {str(e)}.")
+                # Get th e number from the user
+                num = input(promptphrase)
+                
+                # Check if response is special phrase, otherwise treat as a number
+                if num == self.specialphrase:
+                    entryvalid = True
+                    num = "Special Phrase"
+                else:
+                    num = float(num)
+                    entryvalid = True
+                    
+            except Exception as e:
+                print(f"ERROR MESSAGE: {str(e)}.")
         
-        # If all fails then an error must have occured.
-        return ""
+        # Return the number / special phrase
+        return num
         
 
 # Main execution point
