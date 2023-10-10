@@ -40,8 +40,12 @@ class DateTimePractice:
         previousdatetime = currentdatetime_edt - timedeltainterval
         print(f"Four weeks ago EDT was: {previousdatetime}")
         print(f"Four weeks ago EDT will be : {futuredatetime}")
+        
+
 
 # Main Execution Point
 if __name__ == "__main__":
     dtp = DateTimePractice()
     dtp.printdatetimeinfo()
+    
+    
